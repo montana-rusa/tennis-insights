@@ -46,7 +46,7 @@ def average_game_length(name, matches):
     average = all_matches.minutes.sum() / len(all_matches)
     return average
 
-def build_graph(name, metric_name, matches):
+def build_graph(name, metric_name, matches=allyears):
     ys = []
     for year in range(2020,2025):
         matches = pd.read_csv(f'wta_matches_{year}.csv')
@@ -66,7 +66,7 @@ def build_graph(name, metric_name, matches):
     df = pd.DataFrame(data)
 
     fig = px.line(df, y=metric_name, x='years')
-    fig.show()
+    return fig
 #average games per match
 
-build_graph("Iga Swiatek", "average_game_length", allyears)
+#build_graph("Iga Swiatek", "average_game_length", allyears)

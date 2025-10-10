@@ -1,0 +1,58 @@
+
+:root {
+--textLight: #606c38ff;
+--textDark: #283618ff;
+--background: #fefae0ff;
+--bodyLight: #dda15eff;
+--bodyDark: #bc6c25ff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--background);
+}
+
+#title {
+    font-family: "Indie Flower", cursive;
+    font-size: 32px;
+    color: var(--textDark)
+}
+
+p { 
+    font: 16px Arial;
+    color: var(--textLight)
+}
+
+#describeText {
+      float:left;
+}
+
+#mainBox {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 95%;
+     margin: 2.5% auto auto auto;
+
+    background-color: var(--bodyLight);
+    box-shadow: 10px 10px 5px var(--textLight);
+   
+}
+
+#inputBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bodyLight);
+    padding: 5%;
+}
+
+#statBox {
+     flex: 1.5; 
+    background-color: var(--bodyDark);
+}
+
+
+option, input, select, label { font: 24px Arial;}
+
