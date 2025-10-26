@@ -19,19 +19,16 @@
             <br><br><div id = "inputs">
 
                 <!--stat type input box-->
-                <label for="types">Graph type:</label><br>
-                <select name="types" id="types">
-                <option value="averageLength">Average game length</option>
-                <option value="averageGames">Average games won per match</option>
-                </select><br><br>
-
-                <!--php player name input box-->
                 <form action="/" method="post">
-                <label for="fname">Player name:</label>
-                <input type="text" id="fname" name="fname"><br><br><br>
-                <input type="submit" value="Generate graph">
-            </div>
+                    <label for="types">Graph:</label><br>
+                    <select name="types" id="types">
+                    <option value="serving">Best WTA Servers</option>
+                    </select><br><br>
 
+                    <input type="submit" value="Generate graph">
+                </form>
+
+            </div>
         </div>
 
         <div id = "statBox">
