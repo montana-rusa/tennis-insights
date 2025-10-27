@@ -62,7 +62,7 @@ def build_serve_stats_graph(matches = allyears):
         x=sorted_serves.index,
         y='serve_score',
         text='name', 
-        title='WTA Servers ranked'
+        title='WTA Servers ranked (serve_score calculated between 0 and 1 for each player, with 1 being the greatest possible score).'
     )
     fig.update_traces(textposition='top center')
     return fig
