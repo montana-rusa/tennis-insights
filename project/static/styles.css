@@ -15,12 +15,12 @@ body {
 }
 
 .container {
-    margin: 2.5%;
+    margin: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 3fr;
     height: 70vh;   
-    gap: 2.5%;   
+    gap: 0;   
 }
 
 .item {
@@ -28,8 +28,8 @@ body {
     color: var(--white);
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
-    border: 2.5px solid white;
+    border-radius: 0px;
+    border: 1px solid var(--white);
 
 }
 
@@ -48,7 +48,7 @@ p {
 }
 
 h1 {
-    font: 64px Arial;
+    font: 54px Arial;
 }
 option, input, select, label { font: 16px Arial;}
 
