@@ -22,6 +22,12 @@ def home():
         fig = analysis.build_serve_stats_graph()
         graph_html = pio.to_html(fig, full_html=False)
         return render_template('home.html',graph_html=graph_html)
+    
+    
+    if stat_type == 'length':
+        fig = analysis.build_match_length_graph()
+        graph_html = pio.to_html(fig, full_html=False)
+        return render_template('home.html',graph_html=graph_html)
 
 if __name__ == '__main__':
     app.run(debug=True)

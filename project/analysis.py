@@ -67,4 +67,50 @@ def build_serve_stats_graph(matches = allyears):
     fig.update_traces(textposition='top center')
     return fig
 
-build_serve_stats_graph(matches = allyears)
+def build_match_length_graph(matches = allyears):
+
+    winners = matches[['winner_name','minutes']].rename(
+        columns= {
+            'winner_name': 'name',
+            'minutes': 'length'
+        }
+    )
+
+    losers = matches[['loser_name','minutes']].rename(
+        columns= {
+            'loser_name': 'name',
+            'minutes': 'length'
+        }
+    )
+
+    allmatches = pd.concat([losers, winners], ignore_index=True)
+    length_totals = allmatches.groupby('name')[['length']].sum()
+    matches_played = allmatches.groupby('name').size().rename('matches_played')
+
+    length_stats = length_totals.join(matches_played)
+    length_stats = length_stats[length_stats['length'] > 0]
+    length_stats = length_stats[length_stats['matches_played'] >= 50]
+    length_stats = (length_stats['length'] / length_stats['matches_played']).rename("average_length")
+
+    df = length_stats.reset_index()  # index becomes 'name' column
+    df.columns = ['name', 'average_length']
+    df = df.sort_values(by='average_length', ascending=False).reset_index(drop=True)
+    df.index.name = 'rank'
+    print(df)
+    
+    fig = px.scatter(
+        df,
+        x=df.index,
+        y='average_length',
+        text='name', 
+        title='Players ranked by average match length (minutes)'
+    )
+    fig.update_traces(textposition='top center')
+    return fig
+
+
+
+
+
+#build_serve_stats_graph(matches = allyears)
+build_match_length_graph()
